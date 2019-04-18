@@ -99,7 +99,7 @@ public class Ball extends Block
       setY(getY() + getySpeed());
 
 		//draw the ball at its new location
-       super.draw(window, Color.BLUE);
+       super.draw(window);
       
    }
    
