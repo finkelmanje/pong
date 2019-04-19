@@ -24,7 +24,7 @@ class BallTestTwo extends Canvas implements Runnable
                 Ball ball1 = new Ball();
 
 		//test the Ball thoroughly
-		
+		ball1.moveAndDraw(null);
 
 		//test all constructors
 
