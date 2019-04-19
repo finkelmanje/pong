@@ -110,6 +110,16 @@ public class Ball extends Block
 			&& obj.getY() == this.getY()
 			&& obj.getHeight() == this.getHeight() && obj.getWidth() == this.getWidth() && obj.getColor().equals(this.getColor()) && obj.getxSpeed() == this.getxSpeed() && obj.getySpeed() == this.getySpeed();
 	}   
+        
+        public boolean didCollideLeft(Object obj) {
+            Block other = (Block) obj;
+            return getX() <= other.getX() + other.getWidth() + Math.abs(getxSpeed());
+        }
+        
+        public boolean didCollideTop( Object obj) {
+            Block other = (Block) obj;
+            return 
+        }
 
 
    //add a toString() method
