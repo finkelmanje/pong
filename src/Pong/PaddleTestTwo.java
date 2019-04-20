@@ -24,7 +24,8 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 	public PaddleTestTwo()
 	{
 		//set up all game variables
-
+                ball = new Ball(100,100,30,50,Color.BLUE,1,1);
+                leftPaddle = new Paddle(100,100,30,50,Color.BLUE,1);
 
 		//instantiate a Ball
 		
@@ -64,12 +65,12 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 
 		if(!(ball.getX()>=10 && ball.getX()<=550))
 		{
-			ball.setXSpeed(-ball.getXSpeed());
+			ball.setxSpeed(-ball.getxSpeed());
 		}
 
 		if(!(ball.getY()>=10 && ball.getY()<=450))
 		{
-			ball.setYSpeed(-ball.getYSpeed());
+			ball.setySpeed(-ball.getySpeed());
 		}
 
 		if(keys[0] == true)

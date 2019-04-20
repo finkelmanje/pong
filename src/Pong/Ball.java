@@ -87,19 +87,25 @@ public class Ball extends Block
     }
          
          
-   
+   @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
 
    public void moveAndDraw(Graphics window)
    {
    	//draw a white ball at old ball location
-       super.draw(window, Color.WHITE);
+      window.setColor(Color.white);
+      window.fillRect(super.getX(),super.getY(),super.getWidth(),super.getHeight());
 
       setX(getX()+getxSpeed());
 		//setY
       setY(getY() + getySpeed());
 
 		//draw the ball at its new location
-       super.draw(window);
+       window.setColor(super.getColor());
+       window.fillRect(super.getX(),super.getY(),super.getWidth(),super.getHeight());
       
    }
    
@@ -111,16 +117,34 @@ public class Ball extends Block
 			&& obj.getHeight() == this.getHeight() && obj.getWidth() == this.getWidth() && obj.getColor().equals(this.getColor()) && obj.getxSpeed() == this.getxSpeed() && obj.getySpeed() == this.getySpeed();
 	}   
         
-        public boolean didCollideLeft(Object obj) {
-            Block other = (Block) obj;
-            return getX() <= other.getX() + other.getWidth() + Math.abs(getxSpeed());
-        }
-        
-        public boolean didCollideTop( Object obj) {
-            Block other = (Block) obj;
-            return 
-        }
-
+        public boolean didCollideLeft(Object obj){
+		Block xd = (Block)obj;
+		if (getX() > xd.getX() && getX() <= xd.getX()+xd.getWidth() && (getY() >= xd.getY() && getY()+getHeight() <= xd.getY()+xd.getHeight())){
+			return true;
+		}
+		return false;
+	}
+	public boolean didCollideRight(Object obj){
+		Block xd = (Block)obj;
+		if (getX()<xd.getX() && getX()+getWidth()>=xd.getX() && (getY() >= xd.getY() && getY()+getHeight() <= xd.getY()+xd.getHeight())){
+			return true;
+		}
+		return false;
+	}
+	public boolean didCollideTop(Object obj){
+		Block xd = (Block)obj;
+		if (getY()+getHeight() >= xd.getY() && getY() < xd.getY()+xd.getHeight() && (getX()>=xd.getX() && getX()+getWidth()<=xd.getX()+xd.getWidth())){
+			return true;
+		}
+		return false;
+	}
+	public boolean didCollideBottom(Object obj){
+		Block xd = (Block)obj;
+		if (getY() <= xd.getY()+xd.getHeight() && getY()+getHeight() > xd.getY() && (getX()>=xd.getX() && getX()+getWidth()<=xd.getX()+xd.getWidth())){
+			return true;
+		}
+		return false;
+	}
 
    //add a toString() method
 

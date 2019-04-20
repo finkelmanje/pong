@@ -52,16 +52,28 @@ public void setSpeed (int a) {
 
 
 
-   public void moveUpAndDraw(Graphics window)
+  public void moveUpAndDraw(Graphics window)
    {
-
-
+	   draw(window, Color.WHITE);
+	   setY(getY() - speed);
+	   draw(window);
    }
 
    public void moveDownAndDraw(Graphics window)
    {
-
-
+	   draw(window, Color.WHITE);
+	   setY(getY() + speed);
+	   draw(window);
+   }
+   public void moveLeftAndDraw(Graphics window){
+	   draw(window,Color.WHITE);
+	   setX(getX()-speed);
+	   draw(window);
+   }
+   public void moveRightAndDraw(Graphics window){
+	   draw(window,Color.WHITE);
+	   setX(getX()+speed);
+	   draw(window);
    }
 
    
